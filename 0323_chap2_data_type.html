@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        let message = "hello";
+        message = 123456 /* 자료의 타입은 있지만 변수에 저장되는 값의 타입은 언제나 바꿀 수 있는 언어를 '동적 타입 언어'라고 함 */
+        alert(`${message}`) /* 역 따옴표(`) 를 사용한 경우에만 변수를 입력받을 수 있음. 큰 따옴표와 따옴표는 구분하지 않음 */
+
+        /* boolean형 */
+        let nameFieldChecked = true
+        let ageFieldChecked = false
+        let isGreater = 4 > 1;
+        alert(isGreater)
+
+        let age = null; // 다른언어 : null을 '존재하지 ㅇ낳는 객체에 대한 참조', null pointer 를 나타낼 때 사용, js : nothing, empty, unknown 값을 나타냄
+        let school
+        alert(school) // undefined : 변수는 선언했지만 값이 할당되지 않은 상태
+        // 비어있거나 알 수 없는 상태란느 걸 나타내려면 null을 사용
+
+        // 객체(Object) 형
+        // - 다른 자료형은 문자열 or 숫자 등 한 가지만 표현 가능하기에 원시(primitive) 자료형이라고 함.
+        // - 객체형은 data collection 이나 복잡한 개체(entity)를 표현할 수 있음
+        alert(typeof alert)
+
+
+    </script>
+</body>
+</html>

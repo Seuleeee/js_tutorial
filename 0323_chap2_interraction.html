@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // modeal window
+        // 모달 창이 떠 있는 동안에는 스크립트의 실행이 일시 중지 됨. 사용자가 창을 닫기 전에는 나머지 페이지와 상호작용 불가
+        // 모달 창의 모양은 브라우저 마다 다름. 개발자는 창의 모양을 수정할 수 없음
+
+
+        // 1. alert
+        alert("Hello") // modal window : 메시지가 있는 작은 창, modal(페이지의 나머지 부분과 상호작용이 불가능 하다는 의미)
+        
+        // 2. prompt : 함수가 실행되면 텍스트 메시지와 input field, OK, Cacel 버튼이 있는 Modal 창을 띄워줌
+        // result = prompt(title, [default]);
+        let title = "나이를 입력해 주세요.";
+        let age = 100;
+        let agePrompt = prompt(title, age);
+        alert(`당신의 나이는 ${agePrompt}살 입니다.`);
+
+        // 3. confirm : 매개변수로 받은 question 과 확인 및 취소가 있는 modal window를 보여줌. 확인/그 외 : true/false
+        let isBoss = confirm("당신이 보스?");
+        alert(isBoss);
+
+        // 과제
+        let question = "이름이 뭐에요?"
+        let userName = prompt(question)
+        alert(userName)
+
+
+    </script>
+</body>
+</html>
