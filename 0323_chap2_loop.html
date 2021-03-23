@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // break, continue와 레이블 (반복문 앞에 콜론과 함꼐 쓰이는 식별자)
+        // outer라는 label이 붙은 반복문을 찾고 해당 반복문을 빠져나오게 해줌
+        /* outer: for (let i = 0; i < 3; i++) {
+            for (let j=0; j < 3; j++) {
+                let input = prompt(`(${i}, ${j})의 값`, '');
+                if (!input) {
+                    break outer;
+                }
+            }
+        }
+        alert("완료!") */
+
+        // 소수 출력
+        let n = 10;
+
+        nextPrime :
+        for (let i=2; i<=n; i++) {
+            for (let j=2; j<i; j++) {
+                if (i % j == 0) continue nextPrime;
+            }
+            alert(i)
+        }
+
+
+    </script>
+</body>
+</html>

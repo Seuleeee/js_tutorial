@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // OR연산자 기능
+        // 1. 변수 또는 표현식으로 구성된 목록에서 첫 번째 truthy 얻기
+        let firstName = "";
+        let lastName = "";
+        let nickName = "violet";
+        console.log(firstName || lastName || nickName || "익명");
+
+        // 2. 단락 평가 : truthy를 만나면 나머지 값들은 건드리지 않은 채 평가를 멈춤
+        // 두 번째 피 연산자가 변수 할당과 같은 부수적인 효과(side effect)를 가지는 표현식 일 때 명확히 볼 수 있음
+
+        // 간이 로그인  창 구현
+
+        let identification = prompt("아이디를 입력하세요.");
+        let password;
+        if (identification === "Admin"){
+            password = prompt("비밀번호를 입력하세요.")
+        }else{
+            alert("취소 되었습니다.")
+        }
+
+        if (password==="TheMaster"){
+            alert("환영합니다!")
+        } else if (password==="" || password===null){
+            alert("취소되었습니다.")
+        } else {
+            alert("인증에 실패하였습니다.")
+        }
+
+
+    </script>
+</body>
+</html>

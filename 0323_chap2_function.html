@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // undefined 방지
+        function notUndefined(from, text="text not given") {
+            alert(from + ": " + text);
+        }
+        notUndefined("Jo", "Hanseul");
+
+        // 함수 선언 방식 외에 함수 표현식(Function Expression)을 사용해서 함수를 만들 수 있음
+        // 함수가 어떤 방식으로 만들어졌느지와 관계없이 함수는 값이고 변수에 할당할 수 있음
+        // 함수를 만들고 변수에 할당하기
+        let sayHi = function() {
+            alert( "Hello!" );
+        };
+
+        function sayHi2(){
+            alert("hello");
+        }
+        let func = sayHi2; // ()가 붙지 않아서 소스코드 자체가 복사됨 ()가 있으면 결과값이 들어갔을 것임
+
+        // callback function : 함수를 함수의 인수로 전달하고 나중에 인수로 전달한 그 함수를 호출(call back) 하는 것이 콜백함수
+
+        function test(text, yes, no) {
+            if (text) {
+                yes()
+            } else {
+                no()
+            }
+        }
+
+        let yes = function() {
+            console.log("ok")
+        }
+        let no = function() {
+            console.log("no")
+        }
+
+        // test(true,yes,no);
+
+        // 함수 표현식 vs 함수 선언문
+
+        let age = prompt("나이를 알려주세요.", 18);
+
+        let welcome;
+
+        if (age < 18) {
+
+            welcome = function() {
+                alert("안녕!");
+            };
+
+        } else {
+
+            welcome = function() {
+                alert("안녕하세요!");
+            };
+
+        }
+
+        welcome();
+
+
+
+    </script>
+</body>
+</html>
