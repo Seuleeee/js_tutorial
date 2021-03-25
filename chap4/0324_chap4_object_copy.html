@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let message = "Hello!";
+        let phrase = message;
+        // 객체의 경우에는 변수에 객체가 그대로 저장되는 것이 아니라 객체가 저장되어있는 '메모리 주소'에 참조값이 저장됨
+        // 객체가 할당 된 변수를 복사할 땐 객체의 참조 값이 복사되고 객체는 복사되지 않음
+
+        let user = { name: "John" };
+        let admin = user;
+        admin.name = 'Pete';
+        console.log(admin)
+
+        // 참조에 의한 비교
+        // 객체 비교시 동등 연산자 ==와 일치 연산자 ===는 동일하게 동작
+        let a = {};
+        let b = a;
+        console.log( a == b );
+        console.log( a === b );
+
+        // 객체의 내용이 같더라도 독립된 객체이기 때문에 동등 비교시 거짓이 반환됨
+        let c = {};
+        let d = {};
+        console.log(c == d); // false
+
+        // 객체 복사, 병합과 Object.assign
+        let user2 = {
+            name: "John",
+            age: 30,
+        };
+        let clone = {};
+
+        for (let key in user2) {
+            clone[key] = user2[key]
+        }
+
+        clone.name = "Pete";
+        console.log( user2.name ); 
+        console.log( clone.name ); 
+
+        // 객체 병합 : Object.assign 사용
+        let user3 = { name: "John" };
+        let permission1 = { canView: true };
+        let permission2 = { canEdit: true };
+
+        // permission1과 permission2의 property를 user3로 복사
+        Object.assign(user3, permission1, permission2);
+        console.log(user3)
+
+        // Object.assign으로 반복문 없이 간단히 객체 복사 가능
+        let user4 = {
+            name: "Seul",
+            age: 29,
+        };
+        let clone2 = Object.assign({}, user4);
+        console.log(clone2)
+
+        // 중첩 객체 복사
+        // user[key]의 각 값을 검사하면서, 그 값이 객체인 경우 객체의 구조도 복사해주는 반복문을 사용 => deep cloning(깊은 복사)
+        // 깊은 복사시 Structured cloning algorithm 을 사용하면 다양한 상황에서 객체 복사 가능
+        let user5 = {
+            name: "John",
+            sizes: {
+                height: 182,
+                weight: 50,
+            }
+        };
+
+
+    </script>
+</body>
+</html>

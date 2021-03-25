@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 객체는 원시형과 달리 다양한 데이터를 담을 수 있음
+        // key로 구분된 데이터 집합이나, 복잡한 entity를 저장할 수 있음 (js를 잘 다루려면 객체를 잘 알아야 함)
+        // 빈 객체를 만드는 법
+        let user1 = new Object(); // '객체 생성자' 문법
+        let user2 = {}; // '객체 리터럴' 문법
+
+        // literal과 property
+        // 1. literal : '키:값' 쌍으로 구성된 property가 들어감 아래는 2개의 property가 추가됨, 여러 단어 조합시 ""로 묶어줘야함
+        let user = {
+            name: "John",
+            age: 30,
+            "likes birds": true,
+        }
+
+        // 점 표기법으로 읽기
+        console.log(user.name);
+        console.log(user.age);
+        user.isAdmin = true;
+        delete user.age;
+        console.log(user)
+
+        // 여러 단어 조합시 대괄호로 읽어야함
+        console.log(user['likes birds'])
+
+        let key = prompt("어떤 정보?", '');
+        console.log(user[key])
+
+        // 계산된 프로퍼티 : 객체를 만들 떄 객체 리터럴 안의 key가 대괄호로 둘러싸여 있는 경우
+        let fruit = prompt("어떤 과일을 구매하시겠습니까?", "apple");
+        let bag = {
+            [fruit]: 5, // 변수 fruit에서 property 이름을 동적으로 받아옴
+        };
+        console.log( bag.apple );
+
+        // 단축 property : property 값을 기존 변수에서 받는 경우
+        function makeUser(name, age) {
+            return {
+                name: name,
+                age: age,
+            };
+        }
+
+        function makeUser2(name, age) {
+            return {
+                name,
+                age,
+            };
+        }
+
+        let user4 = makeUser2("kobe", 24);
+        console.log(user4.name);
+
+        // 'in' 연산자로 property 존재 여부 확인하기 === undefined 도 동작하지만 실패하는 경우가 있기 떄문에 in을 사용함
+        let currentUser = { name: "John", age: 30, "Dfadsf d": 1};
+        console.log("age" in currentUser);
+        console.log("Dfadsf d" in currentUser);
+        console.log("dfdfd" in currentUser);
+
+        for (key in currentUser) {
+            console.log(currentUser[key]);
+        }
+
+        // 객체 정렬 방식 : 정수는 자동으로 정렬되고, 그 외는 객체에 추가한 순서대로 정렬됨
+        // 객체는 몇 가지 특수한 기능을 가진 연관 배열임
+        // 객체는 프로퍼티를 저장
+        
+
+
+
+    </script>
+</body>
+</html>

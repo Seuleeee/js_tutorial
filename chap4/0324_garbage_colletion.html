@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // js는 가비지 컬렉션이 있음
+        // 도달 가능성 (reachability) 이라는 개념을 사용해 메모리 관리를 수행함
+        // 도달 가능한 값은 어떻게든 접근하거나 사용할 수 있는 값 => 메모리에서 삭제되지 않음
+
+        let user = {
+            name: "k"
+        };
+
+        // user = null;
+
+        let admin = user;
+
+        function marry(man, woman) {
+            woman.husband = man;
+            man.wife = woman;
+
+            return {
+                father: man,
+                mother: woman,
+            }
+        }
+
+        let family = marry({
+            name: "John"
+        }, {
+            name: "Ahn"
+        });
+
+        console.log(family)
+
+        delete family.father;
+        delete family.mother.husband;
+        console.log(family)
+
+        family = null;
+
+        // 가비지 컬렉션을 더 빠르게 하는 최적화 기법
+
+        /*
+        1. generational collection(세대별 수집)
+            - 객체를 새로운 객체와 오래된 객체로 나눔
+        2. incremental collection(점진적 수집)
+            - 가비지 컬렉션을 여러 부분으로 분리한 다음 각 부분을 별도로 수행
+            - 작업을 분리하고 변경 사항을 추적하는데 추가 작업이 필요하긴 하지만 긴 지연을 짧은 지연 여러개로 분산가능
+        3. idle-time collection(유휴 시간 수집)
+            - CPU가 유휴 상태일 때만 가비지 컬렉션을 실행
+        */
+
+
+    </script>
+</body>
+</html>
