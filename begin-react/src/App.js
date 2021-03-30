@@ -1,18 +1,34 @@
-import React from 'react';
-// import Hello from './Hello';
-// import Wrapper from './Wrapper';
-// import Counter from './Counter';
-import InputSample from './InputSample'
+import React, { Component } from 'react';
+import LifeCycleSample from './LifeCycleSample';
+import ErrorBoundary from './ErrorBoundary';
 
-function App() {
-  return (
-    // <Wrapper>
-    //   <Hello name="react" color="red" isSpecial/>
-    //   <Hello color="pink"/>
-    //   <Counter/>
-    // </Wrapper>
-    <InputSample />
-  );
+
+// 랜덤 색상 생성
+function getRandomColor() {
+  return '#' + Math.floor(Math.random() * 16777215).toString(16);
+}
+
+class App extends Component {
+  state = {
+    color: '#000000'
+  }
+
+  handleClick = () => {
+    this.setState({
+      color: getRandomColor()
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <button onClick={this.handleClick}>랜덤 색상</button>
+        <ErrorBoundary>
+          <LifeCycleSample color={this.state.color}/>
+        </ErrorBoundary>
+      </div>
+    )
+  }
 }
 
 export default App;

@@ -1,5 +1,14 @@
 import React from 'react';
 
+
+function User({ users }) {
+    return (
+        <div>
+            <b>{users.username}</b> <span>({users.email})</span>
+        </div>
+    )
+}
+
 function UserList() {
     const users = [
         {
@@ -18,4 +27,14 @@ function UserList() {
             email: 'liz@example.com'
         }
     ];
+
+    return (
+        <div>
+            <User users={users[0]} />
+            <User users={users[1]} />
+            <User users={users[2]} />
+        </div>
+    );
 }
+
+export default UserList;
